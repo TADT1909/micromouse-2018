@@ -3,7 +3,7 @@
 3 cảm biến hồng ngoại (digital)
 2 đầu đọc encoder 20 xung (digital)
 7 chân mạch điều khiển động cơ
-3 công tắc cho chọn chế độ
+2 công tắc cho chọn chế độ
 
 IR Sensor:
   digitalRead(sensor); // HIGH - No obstacle; LOW - obstacle presents
@@ -53,8 +53,8 @@ const int offset_right = 1;
 
 Motor left_motor = Motor(left_IN1, left_IN2, PWM_left, offset_left, STBY);
 Motor right_motor = Motor(right_IN1, right_IN2, PWM_right, offset_right, STBY);
-Encoder enc_left(encoder_left, 6);
-// Encoder enc_right(encoder_right, 6);
+Encoder enc_left(encoder_left_A, encoder_left_B);
+Encoder enc_right(encoder_right_A, encoder_right_B);
 
 int speed;
 void setup() {
