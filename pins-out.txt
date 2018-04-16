@@ -1,14 +1,17 @@
-// 3 chân cảm biến hồng ngoại (digital)
 #define IR_left 14
 #define IR_right 15
 #define IR_front 16
 
-// 2 chân đầu đọc encoder 20 xung (digital)
 // encoder pins should be interrupt pins to get best performance
-#define encoder_left 2
-#define encoder_right 3
+#define encoder_left_A 2
+#define encoder_left_B 20
+#define encoder_right_A 3
+#define encoder_right_B 21
 
-// 7 chân điều khiển động cơ
+/*
+TB6612FNG DC motor controller
+Pins for all inputs, keep in mind the PWM defines must be on PWM pins
+*/
 #define left_IN1 4
 #define right_IN1 7
 #define left_IN2 8
@@ -17,7 +20,5 @@
 #define PWM_right 6
 #define STBY 10
 
-// 3 chân công tắc
-#define contact1 19
-#define contact2 20
-#define contact3 21
+#define contact1 18
+#define contact2 19

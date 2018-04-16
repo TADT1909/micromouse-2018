@@ -26,8 +26,10 @@ Arduino Pro Micro
 #define IR_front 16
 
 // encoder pins should be interrupt pins to get best performance
-#define encoder_left 2
-#define encoder_right 3
+#define encoder_left_A 2
+#define encoder_left_B 20
+#define encoder_right_A 3
+#define encoder_right_B 21
 
 /*
 TB6612FNG DC motor controller
@@ -41,9 +43,8 @@ Pins for all inputs, keep in mind the PWM defines must be on PWM pins
 #define PWM_right 6
 #define STBY 10
 
-#define contact1 19
-#define contact2 20
-#define contact3 21
+#define contact1 18
+#define contact2 19
 
 //Takes 2 motors and goes forward, if it does not go forward adjust offset
 //values until it does.  These will also take a negative number and go backwards
