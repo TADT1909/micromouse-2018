@@ -22,15 +22,15 @@ Arduino Pro Micro
 #include <Encoder.h>
 #include <Sparkfun_TB6612FNG.h>
 
-#define IR_left 14
-#define IR_right 15
-#define IR_front 16
+#define IR_left 19
+#define IR_right 20
+#define IR_front 21
 
 // encoder pins should be interrupt pins to get best performance
 #define encoder_left_A 2
-#define encoder_left_B 20
+#define encoder_left_B 18
 #define encoder_right_A 3
-#define encoder_right_B 21
+#define encoder_right_B 15
 
 /*
 TB6612FNG DC motor controller
@@ -44,8 +44,8 @@ Pins for all inputs, keep in mind the PWM defines must be on PWM pins
 #define PWM_right 6
 #define STBY 10
 
-#define contact1 18
-#define contact2 19
+#define contact1 14
+#define contact2 16
 
 //Takes 2 motors and goes forward, if it does not go forward adjust offset
 //values until it does.  These will also take a negative number and go backwards
@@ -57,7 +57,8 @@ Motor right_motor = Motor(right_IN1, right_IN2, PWM_right, offset_right, STBY);
 Encoder enc_left(encoder_left_A, encoder_left_B);
 Encoder enc_right(encoder_right_A, encoder_right_B);
 
-int speed;
+int speed = 205; // 80% of highest capability of speed
+
 void setup() {
   // put your setup code here, to run once:
 }
