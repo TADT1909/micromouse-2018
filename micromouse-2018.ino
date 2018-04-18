@@ -18,6 +18,7 @@ Arduino Pro Micro
    PWM pins: 3,5,6,9,10
  */
 #define ENCODER_OPTIMIZE_INTERRUPTS
+#include <PID_v1.h>
 #include <Encoder.h>
 #include <Sparkfun_TB6612FNG.h>
 
