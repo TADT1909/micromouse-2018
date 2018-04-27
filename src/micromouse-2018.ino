@@ -14,10 +14,11 @@ Encoder enc_left(encoder_left_A, encoder_left_B);
 Encoder enc_right(encoder_right_A, encoder_right_B);
 long v_left, v_right;
 
-double Setpoint, Input, Output;
+double speed = 205.0, Input, Output;
 double Kp=2, Ki=5, Kd=1;
-PID myPID(&Input, &Output, &Setpoint, Kp, Ki, Kd, DIRECT);
-int speed = 205; // 80% of highest capability of speed
+PID left_motor_PID(&Input, &Output, &speed, Kp, Ki, Kd, DIRECT);
+PID right_motor_PID(&Input, &Output, &speed, Kp, Ki, Kd, DIRECT);
+// int speed = 205; // 80% of highest capability of speed
 
 
 void setup() {
@@ -26,12 +27,15 @@ void setup() {
   pinMode(IR_right, INPUT);
   pinMode(IR_front, INPUT);
 
-  Setpoint = 100;
-  myPID.SetMode(AUTOMATIC);
+  left_motor_PID.SetMode(AUTOMATIC);
+  right_motor_PID.SetMode(AUTOMATIC);
 
 }
 
 void loop() {
+  left_motor_PID.Compute();
+  right_motor_PID.Compute();
+
   // drive robot forward with speed
   // If a negative number is used for speed
   // it will go backwards

@@ -10,10 +10,10 @@
 #define VELOCITY_H
     long
     velocity(Encoder myEnc) {
-  unsigned long newTime = millis();
-  unsigned long oldTime;
-  long oldPosition = 0;
-  long newPosition = myEnc.read();
+  static unsigned long newTime = millis();
+  static unsigned long oldTime;
+  static long oldPosition = 0;
+  static long newPosition = myEnc.read();
   long vel = (newPosition - oldPosition) * 1000 / (newTime - oldTime);
   oldPosition = newPosition;
   oldTime = newTime;
