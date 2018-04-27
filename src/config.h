@@ -2,13 +2,10 @@
 #define __CONFIG_H
 
 /*
-3 cảm biến hồng ngoại (digital)
-2 đầu đọc encoder 20 xung (digital)
+3 cảm biến hồng ngoại (analog) - for PID controlling
+4 đầu đọc cho 2 encoder 334 xung (digital)
 7 chân mạch điều khiển động cơ
-2 công tắc cho chọn chế độ
-
-IR Sensor:
-  digitalRead(sensor); // HIGH - No obstacle; LOW - obstacle presents
+2 công tắc chọn chế độ
 
 Arduino Pro Micro
    pin 3 maps to interrupt 0
@@ -18,17 +15,20 @@ Arduino Pro Micro
    pin 7 is interrupt 4
 
    PWM pins: 3,5,6,9,10
+
+not used pins: 15, 18
  */
 
-#define IR_left 14
-#define IR_right 15
-#define IR_front 16
+// IR sensor pins must be analog pins
+#define IR_left 19
+#define IR_right 20
+#define IR_front 21
 
 // encoder pins should be interrupt pins to get best performance
-#define encoder_left_A 2
-#define encoder_left_B 20
-#define encoder_right_A 3
-#define encoder_right_B 21
+#define encoder_left_A 1
+#define encoder_left_B 0
+#define encoder_right_A 2
+#define encoder_right_B 3
 
 /*
 TB6612FNG DC motor controller
@@ -42,14 +42,12 @@ Pins for all inputs, keep in mind the PWM defines must be on PWM pins
 #define PWM_right 6
 #define STBY 10
 
-#define contact1 18
-#define contact2 19
+#define contact1 16
+#define contact2 14
 
 //Takes 2 motors and goes forward, if it does not go forward adjust offset
 //values until it does.  These will also take a negative number and go backwards
 const int offset_left = 1;
 const int offset_right = 1;
 
-int speed = 205; // 80% of highest capability of speed
-
-#endif /* _CONFIG_H */
+#endif /* __CONFIG_H */

@@ -1,12 +1,13 @@
-#define IR_left 14
-#define IR_right 15
-#define IR_front 16
+// IR sensor pins must be analog pins
+#define IR_left 19
+#define IR_right 20
+#define IR_front 21
 
 // encoder pins should be interrupt pins to get best performance
-#define encoder_left_A 2
-#define encoder_left_B 20
-#define encoder_right_A 3
-#define encoder_right_B 21
+#define encoder_left_A 1
+#define encoder_left_B 0
+#define encoder_right_A 2
+#define encoder_right_B 3
 
 /*
 TB6612FNG DC motor controller
@@ -20,5 +21,5 @@ Pins for all inputs, keep in mind the PWM defines must be on PWM pins
 #define PWM_right 6
 #define STBY 10
 
-#define contact1 18
-#define contact2 19
+#define contact1 16
+#define contact2 14
